@@ -5,39 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>亀の世話アプリ</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=M PLUS Rounded 1c:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
+        <!-- 左: 餌やり -->
         <div class="left-section">
             <div class="header">
-                <img src="https://img.icons8.com/emoji/96/000000/turtle.png" alt="亀アイコン" class="icon">
-                <h2>今日のごはん</h2>
+                <img src="https://img.icons8.com/emoji/120/000000/turtle.png" alt="亀" class="turtle-icon">
+                <h2>ごはんの時間だよ〜</h2>
             </div>
-            <div id="feed-status" class="status">まだごはんあげてないよ〜</div>
+            <div id="feed-status" class="status">
+                <div class="status-text">まだごはんあげてないよ…</div>
+                <img id="feed-turtle" src="https://img.icons8.com/emoji/96/000000/turtle.png" alt="待ってる亀" class="status-img">
+            </div>
             <div class="buttons">
-                <button class="feed-btn fruit" onclick="feedTurtle('果物')">
-                    <span>🍎 果物</span>
-                </button>
-                <button class="feed-btn pellet" onclick="feedTurtle('亀フード')">
-                    <span>🐢 亀フード</span>
-                </button>
-                <button class="feed-btn veggie" onclick="feedTurtle('野菜')">
-                    <span>🥬 野菜</span>
-                </button>
+                <button class="feed-btn fruit" onclick="feedTurtle('果物')"><span>🍓 果物</span></button>
+                <button class="feed-btn pellet" onclick="feedTurtle('亀フード')"><span>🐢 亀フード</span></button>
+                <button class="feed-btn veggie" onclick="feedTurtle('野菜')"><span>🥬 野菜</span></button>
             </div>
         </div>
 
+        <!-- 右: 温浴 -->
         <div class="right-section">
             <div class="header">
-                <img src="https://img.icons8.com/emoji/96/000000/bathtub.png" alt="お風呂アイコン" class="icon">
-                <h2>お風呂タイム</h2>
+                <img src="https://img.icons8.com/emoji/120/000000/bathtub.png" alt="お風呂" class="turtle-icon">
+                <h2>おふろタイム♪</h2>
             </div>
-            <div id="bath-status" class="status">まだお風呂入ってないよ〜</div>
+            <div id="bath-status" class="status">
+                <div class="status-text">まだお風呂入ってないよ…</div>
+                <img id="bath-turtle" src="https://img.icons8.com/emoji/96/000000/turtle.png" alt="待ってる亀" class="status-img">
+            </div>
             <div class="buttons">
-                <button class="bath-btn" onclick="bathTurtle()">
-                    <span>🛁 お風呂に入れた！</span>
-                </button>
+                <button class="bath-btn" onclick="bathTurtle()"><span>🛁 お風呂に入れたよ！</span></button>
             </div>
         </div>
     </div>

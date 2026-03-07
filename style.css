@@ -1,13 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
+    margin: 0;
     height: 100vh;
-    background: linear-gradient(135deg, #fffaf0 0%, #e0f7fa 100%);
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: linear-gradient(to right, #fff3e0 0%, #e3f2fd 100%);
     overflow: hidden;
 }
 
@@ -19,126 +14,119 @@ body {
 
 .left-section, .right-section {
     flex: 1;
-    padding: 4vh 3vw;
+    padding: 4vh 5vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
-    overflow: hidden;
 }
 
 .left-section {
-    background: linear-gradient(135deg, #ff9800 0%, #ff6d00 100%);
-    color: white;
+    background: linear-gradient(135deg, #ffb74d 0%, #f57c00 100%);
+    color: #fff;
 }
 
 .right-section {
-    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
-    color: white;
+    background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%);
+    color: #fff;
+}
+
+/* 中央の柔らかい区切り */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0; left: 50%;
+    width: 4px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 3vh;
+    margin: 2vh 0 4vh;
 }
 
-.icon {
-    width: 80px;
-    height: 80px;
+.turtle-icon {
+    width: 100px;
+    height: 100px;
     margin-bottom: 1vh;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 h2 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    font-size: 3.5rem;
+    margin: 0;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
 .status {
-    font-size: 2.4rem;
-    font-weight: 500;
-    text-align: center;
-    margin: 4vh 0;
-    padding: 2vh 4vw;
-    background: rgba(255,255,255,0.25);
-    border-radius: 20px;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    min-height: 180px;
+    flex: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    background: rgba(255,255,255,0.25);
+    border-radius: 30px;
+    padding: 4vh 3vw;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    margin: 2vh 0;
+    text-align: center;
+}
+
+.status-text {
+    font-size: 2.8rem;
+    font-weight: 500;
     line-height: 1.4;
+    margin-bottom: 3vh;
+}
+
+.status-img {
+    width: 140px;
+    height: 140px;
+    opacity: 0.9;
 }
 
 .buttons {
     display: flex;
-    gap: 3vw;
+    gap: 4vw;
     justify-content: center;
-    padding-bottom: 4vh;
+    padding: 4vh 0;
 }
 
 button {
-    font-size: 2.2rem;
-    font-weight: 600;
-    padding: 3vh 6vw;
+    font-size: 2.4rem;
+    padding: 3vh 7vw;
     border: none;
-    border-radius: 30px;
-    cursor: pointer;
+    border-radius: 999px;
     color: white;
-    transition: all 0.25s ease;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    gap: 1.5vw;
-}
-
-button span {
-    font-size: 2.4rem;
+    gap: 2vw;
 }
 
 button:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+    transform: translateY(-10px) scale(1.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.feed-btn.fruit  { background: linear-gradient(45deg, #ff5722, #f57c00); }
-.feed-btn.pellet { background: linear-gradient(45deg, #795548, #5d4037); }
-.feed-btn.veggie { background: linear-gradient(45deg, #4caf50, #388e3c); }
+.feed-btn.fruit  { background: #ff5722; }
+.feed-btn.pellet { background: #795548; }
+.feed-btn.veggie { background: #4caf50; }
 
-.bath-btn {
-    background: linear-gradient(45deg, #00bcd4, #0097a7);
-    min-width: 60%;
-}
+.bath-btn        { background: #00acc1; min-width: 65%; font-size: 2.6rem; }
 
-/* 背景の薄い模様（オプション） */
-.left-section::before,
-.right-section::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    opacity: 0.08;
-    pointer-events: none;
-    background-size: 120px;
-}
-
-.left-section::before {
-    background-image: 
-        radial-gradient(circle at 20% 30%, #fff 2px, transparent 3px),
-        radial-gradient(circle at 80% 70%, #fff 2px, transparent 3px);
-}
-
-.right-section::before {
-    background-image: 
-        linear-gradient(transparent 50%, rgba(255,255,255,0.15) 50%),
-        linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.15) 50%);
-    background-size: 40px 40px;
-}
-
-/* タブレット横持ちを意識したレスポンシブ */
-@media (max-width: 1024px) {
-    .container { flex-direction: column; }
-    button { padding: 2.5vh 5vw; font-size: 2rem; }
-    .status { font-size: 2.2rem; }
+/* タブレット横持ち最適化 */
+@media (orientation: landscape) and (max-width: 1366px) {
+    h2 { font-size: 3rem; }
+    .status-text { font-size: 2.4rem; }
+    button { padding: 2.5vh 6vw; font-size: 2.2rem; }
 }

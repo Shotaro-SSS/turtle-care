@@ -1,21 +1,18 @@
 function calculateElapsedTime(lastTime) {
-    if (!lastTime) return 'まだ記録されていません';
+    if (!lastTime) return '';
     
-    const now = new Date();
-    const last = new Date(lastTime);
-    const diff = now - last;
+    const diff = Date.now() - new Date(lastTime).getTime();
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
     
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    
-    let result = '';
-    if (days > 0) result += `${days}日`;
-    if (hours > 0 || days > 0) result += `${hours}時間`;
-    if (result === '') result = `${minutes}分`;
-    return `${result}経過しました`;
+    let text = '';
+    if (days > 0) text += days + '日';
+    if (hours > 0) text += hours + '時間';
+    if (text === '' && minutes > 0) text += minutes + '分';
+    if (text) text += '経過したよ〜';
+    return text;
 }
-// ... 前回のcalculateElapsedTimeはそのまま ...
 
 function feedTurtle(type) {
     const now = new Date().toISOString();
@@ -31,22 +28,33 @@ function bathTurtle() {
 }
 
 function updateDisplays() {
-    const lastFeedTime = localStorage.getItem('lastFeedTime');
-    const lastFeedType = localStorage.getItem('lastFeedType') || '';
-    
-    let feedText = 'まだごはんあげてないよ〜';
-    if (lastFeedTime) {
-        feedText = `${lastFeedType}あげてから<br>${calculateElapsedTime(lastFeedTime)}`;
-    }
-    document.getElementById('feed-status').innerHTML = feedText;
+    const feedTime = localStorage.getItem('lastFeedTime');
+    const feedType = localStorage.getItem('lastFeedType') || '';
+    const feedEl = document.getElementById('feed-status');
+    const feedTextEl = feedEl.querySelector('.status-text');
+    const feedImg = document.getElementById('feed-turtle');
 
-    const lastBathTime = localStorage.getItem('lastBathTime');
-    let bathText = 'まだお風呂入ってないよ〜';
-    if (lastBathTime) {
-        bathText = `お風呂に入れてから<br>${calculateElapsedTime(lastBathTime)}`;
+    if (feedTime) {
+        feedTextEl.textContent = `${feedType}あげてから ${calculateElapsedTime(feedTime)}`;
+        feedImg.src = "https://img.icons8.com/emoji/96/000000/happy-turtle.png";  // 喜んでる亀に変更（仮）
+    } else {
+        feedTextEl.textContent = "まだごはんあげてないよ…";
+        feedImg.src = "https://img.icons8.com/emoji/96/000000/turtle.png";
     }
-    document.getElementById('bath-status').innerHTML = bathText;
+
+    const bathTime = localStorage.getItem('lastBathTime');
+    const bathEl = document.getElementById('bath-status');
+    const bathTextEl = bathEl.querySelector('.status-text');
+    const bathImg = document.getElementById('bath-turtle');
+
+    if (bathTime) {
+        bathTextEl.textContent = `お風呂に入れてから ${calculateElapsedTime(bathTime)}`;
+        bathImg.src = "https://img.icons8.com/emoji/96/000000/happy.png";  // 幸せ顔（仮）
+    } else {
+        bathTextEl.textContent = "まだお風呂入ってないよ…";
+        bathImg.src = "https://img.icons8.com/emoji/96/000000/turtle.png";
+    }
 }
 
 updateDisplays();
-setInterval(updateDisplays, 60000);  // 1分ごとに更新で十分（バッテリー節約）
+setInterval(updateDisplays, 60000);

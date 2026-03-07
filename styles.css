@@ -15,7 +15,6 @@ body {
     display: flex;
     height: 100%;
     width: 100%;
-    position: relative;
 }
 
 .left-section, .right-section {
@@ -34,16 +33,6 @@ body {
     background: linear-gradient(135deg, #64b5f6 0%, #1976d2 100%);
     color: #fff;
 }
-
-/* .container::before {
-    content: "";
-    position: absolute;
-    top: 0; bottom: 0; left: 65%;
-    width: 6px;
-    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent);
-    transform: translateX(-50%);
-    z-index: 1;
-} */
 
 .status {
     flex: 1;
@@ -65,7 +54,6 @@ body {
     line-height: 1.45;
 }
 
-/* 経過時間の数字部分を目立たせる */
 .elapsed-highlight {
     font-size: 4rem;
     font-weight: 800;
@@ -109,7 +97,6 @@ button img {
     object-fit: contain;
 }
 
-/* ボタン微調整（薄いオーバーレイ） */
 .feed-btn.fruit  { background: rgba(255,87,34,0.18); }
 .feed-btn.pellet { background: rgba(121,85,72,0.18); }
 .feed-btn.veggie { background: rgba(76,175,80,0.18); }

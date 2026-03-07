@@ -11,7 +11,7 @@ function calculateElapsedTime(lastTime) {
     if (hours > 0)   parts.push(`${hours}時間`);
     if (parts.length === 0 && minutes > 0) parts.push(`${minutes}分`);
 
-    if (parts.length === 0) return '';  // 押した直後（1分未満）
+    if (parts.length === 0) return '';
 
     const elapsedStr = parts.join('');
     return `<span class="elapsed-highlight">${elapsedStr}</span>経過したよ`;
@@ -38,7 +38,6 @@ function bathTurtle() {
 }
 
 function updateDisplays() {
-    // 餌やり
     const feedTime = localStorage.getItem('lastFeedTime');
     const feedType = localStorage.getItem('lastFeedType') || '';
     const feedTextEl = document.querySelector('#feed-status .status-text');
@@ -52,7 +51,6 @@ function updateDisplays() {
         feedTextEl.textContent = "まだごはんあげてないよ…";
     }
 
-    // お風呂
     const bathTime = localStorage.getItem('lastBathTime');
     const bathTextEl = document.querySelector('#bath-status .status-text');
 

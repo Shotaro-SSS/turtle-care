@@ -1,0 +1,24 @@
+{
+  "name": "亀の世話アプリ",
+  "short_name": "亀ケア",
+  "description": "亀の餌やりと温浴を記録するシンプルアプリ",
+  "start_url": "/turtle-care/",
+  "display": "standalone",
+  "background_color": "#fffaf0",
+  "theme_color": "#f57c00",
+  "orientation": "landscape",
+  "icons": [
+    {
+      "src": "images/fruits.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/turtlefoods.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

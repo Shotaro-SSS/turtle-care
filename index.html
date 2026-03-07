@@ -6,6 +6,13 @@
     <title>亀の世話アプリ</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- PWA: Manifest -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <!-- iOS対応（任意） -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="images/fruits.png">
 </head>
 <body>
     <div class="container">
@@ -41,5 +48,20 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- PWA: Service Worker 登録 -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            })
+            .catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+        });
+      }
+    </script>
 </body>
 </html>

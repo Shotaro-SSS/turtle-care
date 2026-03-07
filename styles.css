@@ -48,7 +48,6 @@ body {
 .status {
     flex: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     background: rgba(255,255,255,0.25);
@@ -61,59 +60,26 @@ body {
 }
 
 .status-text {
-    font-size: 2.8rem;
+    font-size: 3rem;          /* 全体を少し大きく */
     font-weight: 500;
     line-height: 1.4;
-    margin-bottom: 4vh;
 }
 
-.status-img {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+/* 経過時間の数字部分を目立たせる */
+.elapsed-highlight {
+    font-size: 3.6rem;        /* 数字をさらに大きく */
+    font-weight: 700;         /* 太字 */
+    color: #fff;              /* 白で強調 */
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);  /* 影で立体感 */
+    background: rgba(0,0,0,0.2);  /* 軽く背景を付けて視認性UP */
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 0 4px;
 }
 
-.buttons {
-    display: flex;
-    gap: 6vw;
-    justify-content: center;
-    padding: 4vh 0;
-}
-
-button {
-    width: 160px;
-    height: 160px;
-    border: none;
-    border-radius: 50%;           /* 丸くしてアイコンらしく */
-    cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    background: transparent;      /* 背景を透過にして画像だけ目立つ */
-}
-
-button:hover {
-    transform: translateY(-12px) scale(1.12);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
-
-button img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* ボタンごとの微調整（必要に応じて色を薄くオーバーレイ） */
-.feed-btn.fruit  { background: rgba(255,87,34,0.15); }
-.feed-btn.pellet { background: rgba(121,85,72,0.15); }
-.feed-btn.veggie { background: rgba(76,175,80,0.15); }
-.bath-btn        { background: rgba(0,172,193,0.15); min-width: auto; }
-
-/* タブレット横持ち最適化 */
+/* タブレット調整 */
 @media (orientation: landscape) and (max-width: 1366px) {
-    .status-text { font-size: 2.4rem; }
-    button { width: 140px; height: 140px; }
-    .status-img { width: 160px; height: 160px; }
+    .status-text { font-size: 2.6rem; }
+    .elapsed-highlight { font-size: 3.2rem; }
 }

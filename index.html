@@ -17,12 +17,21 @@
             </div>
             <div id="feed-status" class="status">
                 <div class="status-text">まだごはんあげてないよ…</div>
-                <img id="feed-turtle" src="https://img.icons8.com/emoji/96/000000/turtle.png" alt="待ってる亀" class="status-img">
+                <img id="feed-turtle" src="images/turtlefoods.png" alt="待ってる亀" class="status-img">
             </div>
             <div class="buttons">
-                <button class="feed-btn fruit" onclick="feedTurtle('果物')"><span>🍓 果物</span></button>
-                <button class="feed-btn pellet" onclick="feedTurtle('亀フード')"><span>🐢 亀フード</span></button>
-                <button class="feed-btn veggie" onclick="feedTurtle('野菜')"><span>🥬 野菜</span></button>
+                <button class="feed-btn fruit" onclick="feedTurtle('果物')">
+                    <img src="images/fruits.png" alt="果物">
+                    <span>果物</span>
+                </button>
+                <button class="feed-btn pellet" onclick="feedTurtle('亀フード')">
+                    <img src="images/turtlefoods.png" alt="亀フード">
+                    <span>亀フード</span>
+                </button>
+                <button class="feed-btn veggie" onclick="feedTurtle('野菜')">
+                    <img src="images/vegetables.png" alt="野菜">
+                    <span>野菜</span>
+                </button>
             </div>
         </div>
 
@@ -34,10 +43,13 @@
             </div>
             <div id="bath-status" class="status">
                 <div class="status-text">まだお風呂入ってないよ…</div>
-                <img id="bath-turtle" src="https://img.icons8.com/emoji/96/000000/turtle.png" alt="待ってる亀" class="status-img">
+                <img id="bath-turtle" src="images/bath.png" alt="待ってる亀" class="status-img">
             </div>
             <div class="buttons">
-                <button class="bath-btn" onclick="bathTurtle()"><span>🛁 お風呂に入れたよ！</span></button>
+                <button class="bath-btn" onclick="bathTurtle()">
+                    <img src="images/bath.png" alt="お風呂">
+                    <span>お風呂に入れたよ！</span>
+                </button>
             </div>
         </div>
     </div>

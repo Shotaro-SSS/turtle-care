@@ -1,61 +1,144 @@
-body {
-    font-family: Arial, sans-serif;
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'M PLUS Rounded 1c', 'Noto Sans JP', sans-serif;
     height: 100vh;
-    background-color: #f0f0f0;
+    background: linear-gradient(135deg, #fffaf0 0%, #e0f7fa 100%);
+    overflow: hidden;
 }
 
 .container {
     display: flex;
-    width: 100%;
-    max-width: 800px;
     height: 100%;
+    width: 100%;
+}
+
+.left-section, .right-section {
+    flex: 1;
+    padding: 4vh 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
 }
 
 .left-section {
-    flex: 1;
-    background-color: orange;
-    padding: 20px;
-    text-align: center;
+    background: linear-gradient(135deg, #ff9800 0%, #ff6d00 100%);
     color: white;
 }
 
 .right-section {
-    flex: 1;
-    background-color: blue;
-    padding: 20px;
-    text-align: center;
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
     color: white;
 }
 
-h2 {
-    margin-bottom: 20px;
+.header {
+    text-align: center;
+    margin-bottom: 3vh;
 }
 
-#feed-status, #bath-status {
-    font-size: 18px;
-    margin-bottom: 40px;
+.icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1vh;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+}
+
+h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.status {
+    font-size: 2.4rem;
+    font-weight: 500;
+    text-align: center;
+    margin: 4vh 0;
+    padding: 2vh 4vw;
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.4;
 }
 
 .buttons {
     display: flex;
-    justify-content: space-around;
+    gap: 3vw;
+    justify-content: center;
+    padding-bottom: 4vh;
 }
 
 button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+    font-size: 2.2rem;
+    font-weight: 600;
+    padding: 3vh 6vw;
     border: none;
-    border-radius: 5px;
-    background-color: white;
-    color: black;
+    border-radius: 30px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    display: flex;
+    align-items: center;
+    gap: 1.5vw;
+}
+
+button span {
+    font-size: 2.4rem;
 }
 
 button:hover {
-    background-color: #ddd;
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.3);
+}
+
+.feed-btn.fruit  { background: linear-gradient(45deg, #ff5722, #f57c00); }
+.feed-btn.pellet { background: linear-gradient(45deg, #795548, #5d4037); }
+.feed-btn.veggie { background: linear-gradient(45deg, #4caf50, #388e3c); }
+
+.bath-btn {
+    background: linear-gradient(45deg, #00bcd4, #0097a7);
+    min-width: 60%;
+}
+
+/* 背景の薄い模様（オプション） */
+.left-section::before,
+.right-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.08;
+    pointer-events: none;
+    background-size: 120px;
+}
+
+.left-section::before {
+    background-image: 
+        radial-gradient(circle at 20% 30%, #fff 2px, transparent 3px),
+        radial-gradient(circle at 80% 70%, #fff 2px, transparent 3px);
+}
+
+.right-section::before {
+    background-image: 
+        linear-gradient(transparent 50%, rgba(255,255,255,0.15) 50%),
+        linear-gradient(90deg, transparent 50%, rgba(255,255,255,0.15) 50%);
+    background-size: 40px 40px;
+}
+
+/* タブレット横持ちを意識したレスポンシブ */
+@media (max-width: 1024px) {
+    .container { flex-direction: column; }
+    button { padding: 2.5vh 5vw; font-size: 2rem; }
+    .status { font-size: 2.2rem; }
 }

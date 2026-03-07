@@ -35,7 +35,7 @@ function updateDisplays() {
 
     if (feedTime) {
         feedTextEl.textContent = `${feedType}あげてから ${calculateElapsedTime(feedTime)}`;
-        feedImg.src = "images/happy_turtle.png" || "images/turtlefoods.png"; // 喜び顔があれば使う
+        feedImg.src = "images/happy_turtle.png" || "images/turtlefoods.png";
     } else {
         feedTextEl.textContent = "まだごはんあげてないよ…";
         feedImg.src = "images/turtlefoods.png";
@@ -54,6 +54,5 @@ function updateDisplays() {
     }
 }
 
-// 初回表示 & 1分ごとに更新（バッテリー節約）
 updateDisplays();
 setInterval(updateDisplays, 60000);

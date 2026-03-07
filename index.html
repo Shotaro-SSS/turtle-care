@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>亀の世話アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2>餌やり</h2>
+            <div id="feed-status">まだ記録されていません</div>
+            <div class="buttons">
+                <button onclick="feedTurtle('果物')">果物</button>
+                <button onclick="feedTurtle('亀フード')">亀フード</button>
+                <button onclick="feedTurtle('野菜')">野菜</button>
+            </div>
+        </div>
+        <div class="right-section">
+            <h2>温浴</h2>
+            <div id="bath-status">まだ記録されていません</div>
+            <div class="buttons">
+                <button onclick="bathTurtle()">お風呂</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

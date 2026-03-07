@@ -20,7 +20,7 @@ body {
 
 .left-section, .right-section {
     flex: 1;
-    padding: 4vh 5vw;
+    padding: 5vh 6vw;
     display: flex;
     flex-direction: column;
 }
@@ -39,8 +39,8 @@ body {
     content: "";
     position: absolute;
     top: 0; bottom: 0; left: 50%;
-    width: 4px;
-    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
+    width: 6px;
+    background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent);
     transform: translateX(-50%);
     z-index: 1;
 }
@@ -50,36 +50,74 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.25);
-    border-radius: 30px;
-    padding: 4vh 3vw;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    margin: 4vh 0 2vh;
+    background: rgba(255,255,255,0.28);
+    border-radius: 32px;
+    padding: 5vh 4vw;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.28);
+    margin: 5vh 0 3vh;
     text-align: center;
 }
 
 .status-text {
-    font-size: 3rem;          /* 全体を少し大きく */
+    font-size: 3.2rem;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.45;
 }
 
 /* 経過時間の数字部分を目立たせる */
 .elapsed-highlight {
-    font-size: 3.6rem;        /* 数字をさらに大きく */
-    font-weight: 700;         /* 太字 */
-    color: #fff;              /* 白で強調 */
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);  /* 影で立体感 */
-    background: rgba(0,0,0,0.2);  /* 軽く背景を付けて視認性UP */
-    padding: 4px 12px;
-    border-radius: 12px;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.25);
+    padding: 6px 16px;
+    border-radius: 16px;
     display: inline-block;
-    margin: 0 4px;
+    margin: 0 6px;
+    letter-spacing: 1px;
 }
 
-/* タブレット調整 */
+.buttons {
+    display: flex;
+    gap: 8vw;
+    justify-content: center;
+    padding: 5vh 0;
+}
+
+button {
+    width: 180px;
+    height: 180px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+    transition: all 0.28s ease;
+    overflow: hidden;
+    background: transparent;
+}
+
+button:hover {
+    transform: translateY(-14px) scale(1.14);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.45);
+}
+
+button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ボタン微調整（薄いオーバーレイ） */
+.feed-btn.fruit  { background: rgba(255,87,34,0.18); }
+.feed-btn.pellet { background: rgba(121,85,72,0.18); }
+.feed-btn.veggie { background: rgba(76,175,80,0.18); }
+.bath-btn        { background: rgba(0,172,193,0.18); }
+
+/* タブレット横持ち最適化 */
 @media (orientation: landscape) and (max-width: 1366px) {
-    .status-text { font-size: 2.6rem; }
-    .elapsed-highlight { font-size: 3.2rem; }
+    .status-text { font-size: 2.8rem; }
+    .elapsed-highlight { font-size: 3.6rem; }
+    button { width: 160px; height: 160px; }
 }

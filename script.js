@@ -11,17 +11,16 @@ function calculateElapsedTime(lastTime) {
     if (hours > 0)   parts.push(`${hours}時間`);
     if (parts.length === 0 && minutes > 0) parts.push(`${minutes}分`);
 
-    if (parts.length === 0) return '';  // 1分未満は空
+    if (parts.length === 0) return '';  // 押した直後（1分未満）
 
     const elapsedStr = parts.join('');
     return `<span class="elapsed-highlight">${elapsedStr}</span>経過したよ`;
 }
 
-// 直後用のメッセージ
 function getImmediateMessage(type) {
-    if (type === '果物') return '果物をあげたよ';
+    if (type === '果物')     return '果物をあげたよ';
     if (type === '亀フード') return '亀フードをあげたよ';
-    if (type === '野菜') return '野菜をあげたよ';
+    if (type === '野菜')     return '野菜をあげたよ';
     return 'お風呂に入れたよ';
 }
 
@@ -39,33 +38,29 @@ function bathTurtle() {
 }
 
 function updateDisplays() {
-    // 餌やり側
+    // 餌やり
     const feedTime = localStorage.getItem('lastFeedTime');
     const feedType = localStorage.getItem('lastFeedType') || '';
     const feedTextEl = document.querySelector('#feed-status .status-text');
 
     if (feedTime) {
         const elapsed = calculateElapsedTime(feedTime);
-        if (elapsed === '') {
-            feedTextEl.innerHTML = getImmediateMessage(feedType);
-        } else {
-            feedTextEl.innerHTML = `${feedType}あげてから ${elapsed}`;
-        }
+        feedTextEl.innerHTML = elapsed === '' 
+            ? getImmediateMessage(feedType)
+            : `${feedType}あげてから ${elapsed}`;
     } else {
         feedTextEl.textContent = "まだごはんあげてないよ…";
     }
 
-    // お風呂側
+    // お風呂
     const bathTime = localStorage.getItem('lastBathTime');
     const bathTextEl = document.querySelector('#bath-status .status-text');
 
     if (bathTime) {
         const elapsed = calculateElapsedTime(bathTime);
-        if (elapsed === '') {
-            bathTextEl.innerHTML = "お風呂に入れたよ";
-        } else {
-            bathTextEl.innerHTML = `お風呂に入れてから ${elapsed}`;
-        }
+        bathTextEl.innerHTML = elapsed === '' 
+            ? "お風呂に入れたよ"
+            : `お風呂に入れてから ${elapsed}`;
     } else {
         bathTextEl.textContent = "まだお風呂入ってないよ…";
     }

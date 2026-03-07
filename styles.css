@@ -35,7 +35,7 @@ body {
     color: #fff;
 }
 
-.container::before {
+/* .container::before {
     content: "";
     position: absolute;
     top: 0; bottom: 0; left: 65%;
@@ -43,7 +43,7 @@ body {
     background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5), transparent);
     transform: translateX(-50%);
     z-index: 1;
-}
+} */
 
 .status {
     flex: 1;

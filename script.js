@@ -14,7 +14,7 @@ function calculateElapsedTime(lastTime) {
     if (parts.length === 0) return '';
 
     const elapsedStr = parts.join('');
-    return `<span class="elapsed-highlight">${elapsedStr}</span>経過したよ`;
+    return `<span class="elapsed-highlight">${elapsedStr}</span>経ったよ`;
 }
 
 function getImmediateMessage(type) {

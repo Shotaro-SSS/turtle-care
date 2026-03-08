@@ -58,7 +58,7 @@ function updateDisplays() {
         const elapsed = calculateElapsedTime(bathTime);
         bathTextEl.innerHTML = elapsed === '' 
             ? "お風呂に入れたよ"
-            : `お風呂に入れてから ${elapsed}`;
+            : `前回のお風呂から ${elapsed}`;
     } else {
         bathTextEl.textContent = "まだお風呂入ってないよ…";
     }

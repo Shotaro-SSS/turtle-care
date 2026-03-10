@@ -2,12 +2,12 @@ function calculateElapsedTime(lastTime) {
     if (!lastTime) return '';
 
     const diff = Date.now() - new Date(lastTime).getTime();
-    const days    = Math.floor(diff / 86400000);
+    // const days    = Math.floor(diff / 86400000);
     const hours   = Math.floor((diff % 86400000) / 3600000);
     const minutes = Math.floor((diff % 3600000) / 60000);
 
     let parts = [];
-    if (days > 0)    parts.push(`${days}日`);
+    // if (days > 0)    parts.push(`${days}日`);
     if (hours > 0)   parts.push(`${hours}時間`);
     if (parts.length === 0 && minutes > 0) parts.push(`${minutes}分`);
 

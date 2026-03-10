@@ -46,11 +46,6 @@ body {
     box-shadow: 0 12px 32px rgba(0,0,0,0.28);
     margin: 5vh 0 3vh;
     text-align: center;
-    
-    /* 追加・修正部分 */
-    max-height: 45vh;               /* ← ここで最大高さを制限（タブレット横持ち想定） */
-    overflow-y: auto;               /* 長くなったら縦スクロール可能に */
-    -webkit-overflow-scrolling: touch;  /* iOSでスムーズスクロール */
 }
 
 .status-text {
